@@ -2,7 +2,8 @@ import React from 'react';
 import { useGLTF, Stage, PresentationControls } from '@react-three/drei';
 
 export function RobotModel(props) {
-  const gltf = useGLTF('/robot_assembled_final.glb');
+  const modelPath = import.meta.env.BASE_URL + 'robot_assembled_final.glb';
+  const gltf = useGLTF(modelPath);
   
   return (
     <Stage environment="city" intensity={0.3} contactShadow={{ opacity: 0.8, blur: 2 }}>
@@ -11,4 +12,4 @@ export function RobotModel(props) {
   );
 }
 
-useGLTF.preload('/robot_assembled_final.glb');
+useGLTF.preload(import.meta.env.BASE_URL + 'robot_assembled_final.glb');
